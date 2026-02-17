@@ -6,11 +6,11 @@
 # define L1 16.9 // cm
 # define L2 20.9 // cm
 
-#define THETA1_OFFSET M_PI/2.0
+#define Q1_OFFSET M_PI/2.0
 
 struct JointSpace {
-    double theta1; // radians
-    double theta2; // radians
+    double q1; // radians
+    double q2; // radians
 };
 
 struct TaskSpace {
