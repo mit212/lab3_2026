@@ -1,7 +1,7 @@
 # Lab 3: 2-DoF Robot Kinematics
 
 2.12/2.120 Intro to Robotics  
-Spring 2025[^1]
+Spring 2026[^1]
 
 - [1 Validate Hardware Setup](#1-validate-hardware-setup)
   - [1.1 Validate Microcontroller](#11-validate-microcontroller)
@@ -33,8 +33,7 @@ Clone this repository and run `robot/blink_test.cpp`. You should see the onboard
 
 <details> <summary> <i> Forget how to clone? </i> </summary>
 
-Please refer to the [instructions from Lab 1](
-https://github.com/mit212/lab1_2025?tab=readme-ov-file#31-git-clone).
+Please refer to the [instructions from Lab 1](https://github.com/mit212/lab1_2026?tab=readme-ov-file#31-git-clone).
 
 </details>
 
@@ -66,7 +65,7 @@ In order to visualize data, we need to plot it in MATLAB. To verify that the int
 7. Close the plot and enter `clear` in the Command Window at the bottom of the screen in MATLAB. This will make sure your serial port is freed up so you can upload to the microcontroller later.
 
 ## 3 Step Response in Joint Space
-Estimated time of completion: 20 min
+Estimated time of completion: 10 min
 
 ### 3.1 Straight Arm
 Set the arm to be straight up in default position:
@@ -75,7 +74,7 @@ Set the arm to be straight up in default position:
 <img src="./.images/straight_arm.png" alt="drawing" width="300"/>
 </p>
 
-Then, run `lab_code/step_response.cpp` and set the power supply voltage to around `10V`. The arm should oscillate between `theta1 = 0` and `theta1 = -M_PI/4`. **Careful: the arm will move clockwise very quickly!**
+Then, run `lab_code/step_response.cpp` and set the power supply voltage to around `10V`. The arm should oscillate between `q1 = 0` and `q1 = -M_PI/4`. **Careful: the arm will move clockwise very quickly!**
 
 To examine the step response in more detail, run `matlab/StepResponsePlot.m` in MATLAB. Make sure to change the port name (lines 27-28) before running as needed. If your controller is properly tuned, the step response should have minimal overshoot, oscillations, and steady state error. 
 
@@ -113,10 +112,10 @@ We know from lecture that the forward kinematics equations are given by
 
 Open `lab_code/kinematics.cpp` and fill in `TODO 1` using the equations above. Please read the comments for hints.
 
-To check your implementation, run `lab_code/kinematics.cpp` and `test_code/forward_kinematics_test.cpp`. Make sure the arm is in the correct default position. In MATLAB, run `matlab/PathPlot.m`. Make sure to change the port name (lines 27-28) before running as needed. Move the arm around and confirm that line on the plot traces the path of the end-effector. 
+To check your implementation, run `lab_code/kinematics.cpp` and `test_code/forward_kinematics_test.cpp`. Make sure the arm is in the correct default position. In MATLAB, run `matlab/PathPlot.m`. Make sure to change the port name (lines 25-26) before running as needed. Move the arm around and confirm that line on the plot traces the path of the end-effector. 
 
 ## 5 Inverse Kinematics
-Estimated time of completion: 10 min
+Estimated time of completion: 15 min
 
 We know from lecture that the inverse kinematics equations of the 2-DoF arm are given by 
 
@@ -126,7 +125,7 @@ We know from lecture that the inverse kinematics equations of the 2-DoF arm are 
 
 Open `lab_code/kinematics.cpp` and fill in `TODO 2` using the equations above. Please read the comments for hints.
 
-To check your implementation, then run `lab_code/kinematics.cpp` and `test_code/inverse_kinematics_test.cpp`. Open the Serial Monitor and move the arm around. Confirm that `theta1_error` and `theta2_error` are `0`. If they are not `0` at certain configurations be prepared to explain why.
+To check your implementation, then run `lab_code/kinematics.cpp` and `test_code/inverse_kinematics_test.cpp`. Open the Serial Monitor and move the arm around. Confirm that `q1_error` and `q2_error` are `0`. If they are not `0` at certain configurations be prepared to explain why.
 
 | :white_check_mark: CHECKOFF 2 :white_check_mark:   |
 |:---------------------------------------------------|
@@ -155,18 +154,16 @@ Repeat the process in the [previous section](#61-vertical-line) and control the 
 |:---------------------------------------------------|
 | Show the screenshots of the plots and demonstrate the arm following your joystick command to a TA or LA. |
 
-## 7 Feedback Form
-
-Tell the TAs if you have any feedback on the lab handout! (Feedback form URL TBD)
-
-## X Optional
+## X Optional & Extra Credit
 
 Here are some optional challenges you can try if you finish lab early!
 
 1. Change `trajectoryType` in `drawing.cpp` to `HORIZONTAL_LINE`.
 2. Change `trajectoryType` to `CIRCLE`.
-3. Modify `lab_code/drawing.cpp` to create a fun, unique trajectory.
+3. Modify `lab_code/drawing.cpp` to create a fun, unique trajectory (if you need an idea, try a star or a flower). Use a marker to draw your shape on a whiteboard or piece of paper.
 4. Modify `test_code/inverse_kinematics_test.cpp` so that the errors are always `0` regardless of elbow-up or elbow-down configuration. 
+
+For extra credit, please complete at least #3 or #4 above and demonstrate it to a TA or LA.
 
 [^1]: Version 1 - 2016: Peter Yu, Ryan Fish and Kamal Youcef-Toumi  
   Version 2 - 2017: Yingnan Cui, Kamal Youcef-Toumi, Steven Yeung and Abbas Shikari  
@@ -175,4 +172,5 @@ Here are some optional challenges you can try if you finish lab early!
   Version 5 - 2021: Hanjun Song  
   Version 6 - 2023: Ravi Tejwani and Kentaro Barhydt  
   Version 7 - 2024: Jinger Chong, Josh Sohn  
-  Version 8 - 2025: Roberto Bolli Jr., Kaleb Blake
+  Version 8 - 2025: Roberto Bolli Jr., Kaleb Blake  
+  Version 9 - 2026: Stephan Stansfield
