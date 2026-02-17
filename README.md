@@ -17,8 +17,7 @@ Spring 2026[^1]
 - [6 Cartesian Space](#6-cartesian-space)
   - [6.1 Vertical Line](#61-vertical-line)
   - [6.2 Joystick](#62-joystick)
-- [7 Feedback Form](#7-feedback-form)
-- [X Optional](#x-optional)
+- [X Optional & Extra Credit](#x-optional--extra-credit)
 
 ## 1 Validate Hardware Setup
 Estimated time of completion: 10 min
