@@ -21,15 +21,15 @@ void setup() {
 void loop(){
     // Read encoders every READ_DELAY microseconds
     EVERY_N_MICROS(READ_DELAY) {
-        state.theta1 = encoder1.getPosition() + THETA1_OFFSET;
-        state.theta2 = -encoder2.getPosition();
+        state.q1 = encoder1.getPosition() + Q1_OFFSET;
+        state.q2 = -encoder2.getPosition();
     }
 
     // Print encoder readings every PRINT_DELAY milliseconds
     EVERY_N_MILLIS(PRINT_DELAY) {
         test_state = inverseKinematics(forwardKinematics(state));
-        Serial.printf("theta1_error: %.2f, theta2_error: %.2f\n", 
-                  abs(state.theta1 - test_state.theta1),
-                  abs(state.theta2 - test_state.theta2));
+        Serial.printf("q1_error: %.2f, q2_error: %.2f\n", 
+                  abs(state.q1 - test_state.q1),
+                  abs(state.q2 - test_state.q2));
     }
 }

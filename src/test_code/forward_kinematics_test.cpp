@@ -21,8 +21,8 @@ void setup() {
 void loop(){
     // Read encoders every READ_DELAY microseconds
     EVERY_N_MICROS(READ_DELAY) {
-        state.theta1 = encoder1.getPosition() + THETA1_OFFSET;
-        state.theta2 = -encoder2.getPosition();
+        state.q1 = encoder1.getPosition() + Q1_OFFSET;
+        state.q2 = -encoder2.getPosition();
     }
 
     // Print every PRINT_DELAY milliseconds
